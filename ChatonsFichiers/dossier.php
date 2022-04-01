@@ -37,6 +37,12 @@ include "header.php";
                         <div class="card-body">
                             <p class="card-text">There is a cat.</p>
                         </div>
+                        <form method="post" action="actions/supprimerChaton.php">
+                            <input type="hidden" name="token" value="<?php echo $token?>">
+                            <input type="hidden" name="d" value="<?php echo $d?>">
+                            <input type="hidden" name="image" value="<?php echo $image?>">
+                            <input type="submit" onclick="return confirm('Etes vous sur ?');" style="background-color: darkred" value="X"/>
+                        </form>
                     </div>
                 </div>
                 <?php

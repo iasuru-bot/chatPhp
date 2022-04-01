@@ -4,7 +4,7 @@ session_start();
 if($_SESSION["token"] != filter_input(INPUT_POST,"token")){
     die("vilain pirate");
 }
-else $_SESSION["token"]=uniquid();
+else $_SESSION["token"]=uniqid();
 
 
 $nomDuDossier = filter_input(INPUT_POST,"nomDuDossier");
