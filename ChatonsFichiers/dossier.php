@@ -39,6 +39,11 @@ include "header.php";
         }
         ?>
     </div>
+    <form method="post" action="actions/ajouterChaton.php" enctype="multipart/form-data">
+        <h2>Ajouter un chaton</h2>
+        <input type="file" required name="fichier"/>
+        <input type="submit" value="OK"/>
+    </form>
 </div>
 
 
