@@ -1,4 +1,9 @@
 <?php
+session_start();
+$token=uniqid();
+$_SESSION["token"]=$token;
+
+
 //Jamais de variable récupérer dans un get directement dans un echo
 //On utilise un htmlentities pour convertir en html direct.
 $d=filter_input(INPUT_GET,"d");
@@ -43,6 +48,7 @@ include "header.php";
         <h2>Ajouter un chaton</h2>
         <input type="file" required accept=".jpg,.gif,.png,.jfif" name="fichier"/>
         <input type="hidden" name="nomDuDossier" value="<?php echo $d?>" />
+        <input type="hidden" name="token" value="<?php echo $token?>">
         <input type="submit" value="OK"/>
     </form>
 </div>
