@@ -28,6 +28,15 @@ include "header.php";
     <div class="row">
         <?php
         $images = scandir("Photos/$d");
+        if (sizeof($images)==2){?>
+            <form method="post" action="actions/supprimerDossier.php" >
+                <h2>Supprimer le dossier</h2>
+                <input type="hidden" name="d" value="<?php echo $d?>" />
+                <input type="hidden" name="token" value="<?php echo $token?>">
+                <input type="submit" onclick="return confirm('Etes vous sur ?');" style="background-color: #e80f0f" value="OK"/>
+            </form>
+        <?php }
+
         foreach ($images as $image) {
             if ($image!="." && $image!=".."&& is_file("Photos/$d/$image")){
                 ?>
@@ -41,7 +50,7 @@ include "header.php";
                             <input type="hidden" name="token" value="<?php echo $token?>">
                             <input type="hidden" name="d" value="<?php echo $d?>">
                             <input type="hidden" name="image" value="<?php echo $image?>">
-                            <input type="submit" onclick="return confirm('Etes vous sur ?');" style="background-color: darkred" value="X"/>
+                            <input type="submit" onclick="return confirm('Etes vous sur ?');" style="background-color: #e80f0f" value="X"/>
                         </form>
                     </div>
                 </div>

@@ -11,4 +11,4 @@ else $_SESSION["token"]=uniqid();
 $nomDuDossier = filter_input(INPUT_POST,"nomDuDossier");
 if (!is_dir("../photos/$nomDuDossier")) mkdir("../photos/$nomDuDossier");
 
-header("location: ../dossier.php?$nomDuDossier");
+header("location: ../dossier.php?d=$nomDuDossier");
