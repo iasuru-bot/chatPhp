@@ -33,7 +33,7 @@ include "header.php";
                 <h2>Supprimer le dossier</h2>
                 <input type="hidden" name="d" value="<?php echo $d?>" />
                 <input type="hidden" name="token" value="<?php echo $token?>">
-                <input type="submit" onclick="return confirm('Etes vous sur ?');" style="background-color: #e80f0f" value="OK"/>
+                <input type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Etes vous sur ?');"  value="OK"/>
             </form>
         <?php }
 
@@ -50,7 +50,7 @@ include "header.php";
                             <input type="hidden" name="token" value="<?php echo $token?>">
                             <input type="hidden" name="d" value="<?php echo $d?>">
                             <input type="hidden" name="image" value="<?php echo $image?>">
-                            <input type="submit" onclick="return confirm('Etes vous sur ?');" style="background-color: #e80f0f" value="X"/>
+                            <input type="submit" onclick="return confirm('Etes vous sur ?');" class="btn btn-sm btn-danger" value="X"/>
                         </form>
                     </div>
                 </div>

@@ -6,7 +6,6 @@ if($_SESSION["token"] != filter_input(INPUT_POST,"token")){
     die("vilain pirate");
 }
 else $_SESSION["token"]=uniqid();
-
-rmdir("../Photos/$d");
+if (is_dir("../Photos/$d"))rmdir("../Photos/$d");
 header("location: ../index.php");
 
