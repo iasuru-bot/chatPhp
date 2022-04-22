@@ -3,7 +3,6 @@ session_start();
 $token=uniqid();
 $_SESSION["token"]=$token;
 
-
 //Jamais de variable récupérer dans un get directement dans un echo
 //On utilise un htmlentities pour convertir en html direct.
 $d=filter_input(INPUT_GET,"d");

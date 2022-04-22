@@ -3,7 +3,7 @@
 session_start();
 $token=uniqid();
 $_SESSION["token"]=$token;
-
+$title= "Gestion des gros CHATONS";
 include "header.php";
 $id = filter_input(INPUT_GET,"id");
 
@@ -60,8 +60,9 @@ foreach ($lignes as $l){?>
                 $req->execute();
 
                 $reponses= $req->fetchAll();
-                foreach ($reponses as $r){?>
-                    <option value="<?php echo $r["id"] ?>"><?php echo $r["titre"]?></option>
+                foreach ($reponses as $r){
+                    ?>
+                    <option value="<?php echo $r["id"] ?>" <?php echo $id==$r["id"] ? "selected" : ""?>> <?php echo $r["titre"]?> </option>
                 <?php } ?>
             </select>
         </div>
