@@ -35,7 +35,7 @@
 
                 foreach ($lignes as $l){?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="dossier.php?id=<?php echo $l["id"]?>"><?php echo htmlentities($l['titre'])?></a>
+                        <a class="nav-link active" aria-current="page" href="categorie.php?id=<?php echo $l["id"]?>"><?php echo htmlentities($l['titre'])?></a>
                     </li>
                 <?php }
                 ?>

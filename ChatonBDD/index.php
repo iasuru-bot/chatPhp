@@ -28,9 +28,12 @@ include "header.php";
 
         foreach ($lignes as $l){?>
             <tr>
-                <th><?php echo htmlentities($l['titre'])?></th>
-                <th><?php echo htmlentities($l['description'])?></th>
-                <th><a href="modifierCategorie.php?id=<?php echo $l["id"]?>" class="btn btn-success">Modifier</a></th>
+                <td><?php echo htmlentities($l['titre'])?></td>
+                <td><?php echo htmlentities($l['description'])?></td>
+                <td>
+                    <a href="modifierCategorie.php?id=<?php echo $l["id"]?>" class="btn btn-success">Modifier</a>
+                    <a href="supprimerCategorie.php?id=<?php echo $l["id"]?>" class="btn btn-danger">Supprimer</a>
+                </td>
             </tr>
         <?php }
         ?>

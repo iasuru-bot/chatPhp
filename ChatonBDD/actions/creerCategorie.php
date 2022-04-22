@@ -21,4 +21,4 @@ $req->execute();
 $req->debugDumpParams();
 
 $id=$pdo->lastInsertId();
-header("location: ../dossier.php?id=$id");
+header("location: ../categorie.php?id=$id");
