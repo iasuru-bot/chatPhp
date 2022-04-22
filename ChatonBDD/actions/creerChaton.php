@@ -14,8 +14,8 @@ $photo = filter_input(INPUT_POST,"photo");
 
 //récupération de la photo
 $uploaddir = "../Photos/";
-$uploadfile = $uploaddir . basename($_FILES['fichier']['name']);
-move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadfile);
+$uploadfile = $uploaddir . basename($_FILES['photo']['name']);
+move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile);
 
 include_once "../config.php";
 $pdo = new PDO("mysql:host=".Config::SERVEUR.";dbname=".Config::BDD,Config::UTILISATEUR,Config::MOTDEPASSE);
@@ -25,7 +25,7 @@ $req = $pdo->prepare("INSERT INTO chatons(nom,dateDeNaissance,id_categorie,photo
 $req->bindParam(":nom",$nom);
 $req->bindParam(":dateDeNaissance",$dateNaissance);
 $req->bindParam(":id_categorie",$idCategorie);
-$req->bindValue(":photo", basename($_FILES['fichier']['name']));
+$req->bindValue(":photo", basename($_FILES['photo']['name']));
 
 $req->execute();
 

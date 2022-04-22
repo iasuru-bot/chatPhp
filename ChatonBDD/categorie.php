@@ -23,7 +23,25 @@ if (count($lignes)!=1){
 }
 foreach ($lignes as $l){?>
     <h1><?php echo htmlentities($l["titre"])?></h1>
+    <?php
+    $pdo = new PDO("mysql:host=".Config::SERVEUR.";dbname=".Config::BDD,Config::UTILISATEUR,Config::MOTDEPASSE);
+    $req = $pdo->prepare("SELECT * FROM chatons WHERE id_categorie=:id");
+    $req->bindParam(":id",$id);
+    $req->execute();
+    $images = $req->fetchAll();
+    foreach ($images as $i){ ?>
+    <div class="col col-3">
+        <div class="card">
+            <img src="<?php echo "Photos/".$i["photo"]?>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text"><?php echo $i["nom"]?></p>
+                <p class="card-text"><i><?php echo $i["dateDeNaissance"]?></i></p>
+            </div>
+        </div>
 
+    </div>
+
+    <?php }?>
     <form method="post" action="actions/creerChaton.php" enctype="multipart/form-data">
         <h2>Ajouter un chaton</h2>
         <div class="form-group">
