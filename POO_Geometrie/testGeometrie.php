@@ -9,18 +9,35 @@
 </head>
 <body>
 <?php
-include_once "Polygone.php";
+
+include_once "Triangle.php";
+include_once "Quadrilatere.php";
+include_once "Cercle.php";
+include_once "GenerateurCanvas.php";
+include_once "Point.php";
 
 //quand plusieurs : use \Geometrie\{point, blabla}
 //point avec alias : point as p
-use \Geometrie\{Point, Polygone};
-$p1=new Point(2,5);
-$p2=new Point(4,3);
-$p3=new Point(6, 1);
-$poly=new Polygone($p1,$p2,$p3); // avec le ... je peux passer autant que je veux
+use \Geometrie\{Point,Triangle,Quadrilatere, GenerateurCanvas , Cercle};
+$p1=new Point(0,0);
+/*
+$triangle = new Triangle($p1,$p2,$p3);
+echo"le triangle " ;
+echo $triangle->estIsocele()? "est isocele ": "est pas isocele ";
+echo "<br>";
+echo $triangle->CalculerAire();*/
 
-echo $poly;
-echo $poly->CalculerPerimetre();
+
+$quadri = new Quadrilatere(new Point(10,10),new Point(10,100),new Point(100,100),new Point(100,10));
+$triangle = new Triangle(new Point(200,100),new Point(200,200),new Point(300,300));
+$cercle = new Cercle( new Point(400,400),70);
+
+$liste = new GenerateurCanvas(500,500);
+$liste->AjouterFigure($quadri);
+$liste->AjouterFigure($triangle);
+$liste->AjouterFigure($cercle);
+$liste->GenererHTMLetJS();
+
 ?>
 </body>
 </html>

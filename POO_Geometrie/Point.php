@@ -18,7 +18,7 @@ class Point
         return "(".$this->x.";".$this->y.")"; // retourne une chaine style (3;4)
     }
     public function CalculerDistance(Point $autrePoint): float{
-        echo $autrePoint."a".$this."est".sqrt(pow($this->x-$autrePoint->x,2)+pow($this->y - $autrePoint->y, 2));
+        //echo $autrePoint."a".$this."est".sqrt(pow($this->x-$autrePoint->x,2)+pow($this->y - $autrePoint->y, 2));
         return sqrt(pow($this->x-$autrePoint->x,2)+pow($this->y - $autrePoint->y, 2));
     }
 }

@@ -3,10 +3,10 @@
 namespace Geometrie;
 
 include_once "Point.php";
-
-class Polygone
+include_once "IFigure.php";
+abstract class Polygone implements IFigure
 {
-    private $lesPoints;
+    protected $lesPoints;
 
     public function __construct(...$desPoints)
     {
@@ -35,4 +35,30 @@ class Polygone
 
         return $total;
     }
+    public abstract function CalculerAire() ;
+
+    public function DessinerHtml()
+    {?>
+         <script>
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.moveTo(<?php echo $this->lesPoints[0]->x?>,<?php echo $this->lesPoints[0]->y?>);
+            <?php
+            for ($i=1;$i<=count($this->lesPoints)-1;$i++){?>
+            ctx.lineTo(<?php  echo $this->lesPoints[$i]->x?>,<?php echo $this->lesPoints[$i]->y?>);
+            <?php }?>
+            ctx.closePath();
+
+            // the outline
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = '#666666';
+            ctx.stroke();
+
+            // the fill color
+            ctx.fillStyle = "#93b3fa";
+            ctx.fill();
+        </script>
+    <?php }
+
 }
