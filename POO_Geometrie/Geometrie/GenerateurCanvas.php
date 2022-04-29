@@ -1,9 +1,6 @@
 <?php
 
 namespace Geometrie;
-include_once "Triangle.php";
-include_once "Quadrilatere.php";
-include_once "IFigure.php";
 
 class GenerateurCanvas
 {
@@ -39,4 +36,21 @@ class GenerateurCanvas
             $f->DessinerHtml();
         }
     }
+
+    public function GenererTab(){?>
+    <table class="table table-striped">
+        <tr>
+            <th>Figure</th>
+            <th>Périmètre</th>
+            <th>Aire</th>
+        </tr>
+        <?php foreach ($this->figures as $figure){?>
+            <tr>
+                <td><?php echo $figure?></td>
+                <td><?php echo $figure->CalculerPerimetre() ?></td>
+                <td><?php echo $figure->CalculerAire() ?></td>
+            </tr>
+        <?php }?>
+    </table>
+    <?php }
 }
