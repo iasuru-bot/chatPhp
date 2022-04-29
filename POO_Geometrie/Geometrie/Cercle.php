@@ -1,7 +1,6 @@
 <?php
 
 namespace Geometrie;
-include_once "Point.php";
 
 class Cercle implements IFigure
 {
@@ -20,12 +19,12 @@ class Cercle implements IFigure
 
     public function CalculerAire(): float
     {
-        return 2 *pi() *$this->rayon;
+        return pi() *$this->rayon *$this->rayon;
     }
 
     public function CalculerPerimetre(): float
     {
-        return pi() *$this->rayon *$this->rayon;
+        return 2 *pi() *$this->rayon;
     }
 
     public function DessinerHtml()
@@ -40,4 +39,9 @@ class Cercle implements IFigure
             ctx.stroke();
         </script>
 <?php }
+
+    public function __toString(): String
+    {
+        return  $this->centre."/".$this->rayon;
+    }
 }

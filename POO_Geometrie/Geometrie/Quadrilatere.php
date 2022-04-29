@@ -1,7 +1,7 @@
 <?php
 
 namespace Geometrie;
-include_once "Polygone.php";
+
 class Quadrilatere extends Polygone
 {
     public function __construct(Point $a,Point $b, Point $c, Point $d)

@@ -2,8 +2,6 @@
 
 namespace Geometrie;
 
-include_once "Point.php";
-include_once "IFigure.php";
 abstract class Polygone implements IFigure
 {
     protected $lesPoints;
@@ -11,18 +9,6 @@ abstract class Polygone implements IFigure
     public function __construct(...$desPoints)
     {
         $this->lesPoints=$desPoints;
-    }
-
-    public function __toString() : String
-    {
-        $s="[";
-        foreach ($this->lesPoints as $p)
-        {
-            $s.=$p.","; //on concatène avec un point comme un +
-        }
-        $s.="]";
-
-        return $s;
     }
 
     public function CalculerPerimetre() : float {
@@ -60,5 +46,17 @@ abstract class Polygone implements IFigure
             ctx.fill();
         </script>
     <?php }
+
+    public function __toString() : String
+    {
+        $s="[";
+        foreach ($this->lesPoints as $p)
+        {
+            $s.=$p.","; //on concatène avec un point comme un +
+        }
+        $s.="]";
+
+        return $s;
+    }
 
 }

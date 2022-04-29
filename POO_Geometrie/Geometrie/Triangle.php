@@ -1,7 +1,6 @@
 <?php
 
 namespace Geometrie;
-include_once "Polygone.php";
 
 class Triangle extends Polygone
 {
